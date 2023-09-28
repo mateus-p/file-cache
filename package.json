@@ -1,13 +1,14 @@
 {
   "name": "@mateus-pires/file-cache",
-  "version": "0.0.1",
+  "version": "0.1.2",
   "main": "dist/index.js",
   "author": "Mateus Pires",
   "files": [
     "dist"
   ],
+  "private": false,
   "repository": {
-    "url": "https://github.com/mateus-p/file-cache",
+    "url": "git+https://github.com/mateus-p/file-cache.git",
     "type": "git"
   },
   "license": "MIT",
@@ -25,5 +26,12 @@
   "dependencies": {
     "lodash.clone": "^4.5.0",
     "tslib": "^2.6.2"
-  }
+  },
+  "types": "./dist/index.d.ts",
+  "bugs": {
+    "url": "https://github.com/mateus-p/file-cache/issues"
+  },
+  "homepage": "https://github.com/mateus-p/file-cache#readme",
+  "description": ""
 }
+

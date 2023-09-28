@@ -10,19 +10,12 @@ export type RawCachePair = { key: string; value: CacheValue };
 export interface ICache {
   max_size: number;
 
-  /**
-   * @override
-   */
+  readonly ready: boolean;
+
   delete(key: string, include_store?: boolean): Promise<boolean>;
 
-  /**
-   * @override
-   */
-  set(key: string, value: string): Promise<this>;
+  set(key: string, value: string): Promise<void>;
 
-  /**
-   * @override
-   */
   get(key: string): Promise<NullableCacheValue>;
 
   loadFromStore(): Promise<void>;
@@ -42,7 +35,6 @@ export interface ICache {
 
   /**
    * @param include_store default: `false`
-   * @param type default `'key'`
    */
   has(key: string, include_store?: boolean): boolean;
 }
@@ -51,6 +43,10 @@ export default class Cache
   implements ICache, Omit<Map<string, CacheValue>, "delete" | "set" | "get">
 {
   private __map: Map<string, string> = new Map();
+
+  get ready() {
+    return this.store.ready;
+  }
 
   //#region MAP BINDINGS
 
@@ -91,9 +87,6 @@ export default class Cache
 
   constructor(public max_size: number, public store: IStore) {}
 
-  /**
-   * @override
-   */
   async delete(key: string, include_store?: boolean) {
     const deleted = this.__map.delete(key);
 
@@ -102,16 +95,13 @@ export default class Cache
     return deleted;
   }
 
-  /**
-   * @override
-   */
   async set(key: string, value: string) {
     if (typeof key !== "string" || typeof value !== "string") {
       throw new TypeError("Cache only accepts string keys/values");
     }
 
     if (await this.update(key, value)) {
-      return this;
+      return;
     }
 
     const keys = Array.from(this.keys());
@@ -134,12 +124,9 @@ export default class Cache
 
     this.__map.set(key, value);
 
-    return this;
+    return;
   }
 
-  /**
-   * @override
-   */
   async get(key: string) {
     if (typeof key !== "string") {
       throw new TypeError("Cache only accepts string keys/values");
@@ -195,7 +182,7 @@ export default class Cache
       return false;
     }
 
-    await this.set(key, new_value);
+    this.__map.set(key, new_value);
 
     if (sync_with_store) await this.store.insert([{ key, value: new_value }]);
 

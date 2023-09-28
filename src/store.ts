@@ -5,6 +5,7 @@ import path from "path";
 
 export interface IStore {
   dest: string;
+  readonly ready: boolean;
   insert(pairs: RawCachePair[]): Promise<void>;
   /**
    * @param _skipCheck **INTERNAL USAGE ONLY**
@@ -17,8 +18,13 @@ export interface IStore {
 }
 
 class Store implements IStore {
-  private __unfinished_write_calls = 0;
+  protected __unfinished_write_calls = 0;
+  protected __ready = false;
   dest = "";
+
+  get ready() {
+    return this.__ready;
+  }
 
   async delete(key: string) {
     const file = path.resolve(this.dest, key);
@@ -37,11 +43,11 @@ class Store implements IStore {
   async setup(dest: string, clean?: boolean) {
     this.dest = path.resolve(dest);
 
+    if (clean) await rm(this.dest, { force: true, recursive: true });
+
     if (!existsSync(this.dest)) await mkdir(this.dest, { recursive: true });
-    else if (clean) {
-      await rm(this.dest, { force: true, recursive: true });
-      await mkdir(this.dest, { recursive: true });
-    }
+
+    this.__ready = true;
   }
 
   async retrieve(key: string, _skipCheck?: boolean) {

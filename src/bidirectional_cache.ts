@@ -3,8 +3,8 @@ import Cache, { type ICache, type CacheValue } from "./cache";
 import Store from "./store";
 
 export default class BidirectionalCache implements ICache {
-  private __key_cache = new Cache(0, new Store());
-  private __value_cache = new Cache(0, new Store());
+  protected __key_cache = new Cache(0, new Store());
+  protected __value_cache = new Cache(0, new Store());
 
   set max_size(n: number) {
     this.__key_cache.max_size = n;
@@ -13,6 +13,14 @@ export default class BidirectionalCache implements ICache {
 
   get max_size() {
     return this.__key_cache.max_size;
+  }
+
+  get size() {
+    return this.__key_cache.size;
+  }
+
+  get ready() {
+    return this.__key_cache.store.ready && this.__value_cache.store.ready;
   }
 
   constructor(max_size: number, public root_store_path: string) {
@@ -49,11 +57,16 @@ export default class BidirectionalCache implements ICache {
   async set(key: string, value: string) {
     await this.__key_cache.set(key, value);
     await this.__value_cache.set(value, key);
-
-    return this;
   }
 
-  async save(keys: string[]) {
+  async save(keys: true | string[]) {
+    if (keys === true) {
+      await this.__key_cache.save(true);
+      await this.__value_cache.save(true);
+
+      return;
+    }
+
     for (const key of keys) {
       const current_value = await this.__key_cache.get(key);
 
@@ -66,7 +79,7 @@ export default class BidirectionalCache implements ICache {
   async update(
     key: string,
     new_value: NonNullable<CacheValue>,
-    sync_with_store?: boolean | undefined
+    sync_with_store?: boolean
   ) {
     const old_value = await this.__key_cache.get(key);
 
@@ -80,9 +93,9 @@ export default class BidirectionalCache implements ICache {
 
     if (old_value) await this.__value_cache.delete(old_value, sync_with_store);
 
-    const value_update = await this.__value_cache.set(new_value, key);
+    await this.__value_cache.set(new_value, key);
 
-    return !value_update;
+    return true;
   }
 
   async get(key_or_value: string) {
