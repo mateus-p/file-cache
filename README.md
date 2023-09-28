@@ -103,12 +103,12 @@ await Util.waitUntil(() => x == 2);
 
 ## Roadmap
 
-[ ] Complete README.md
+[] Complete README.md
 
-[ ] Add tests
+[] Add tests
 
-[ ] Make sure it is a stable v1
+[] Make sure it is a stable v1
 
-[ ] Add CONTRIBUTING.md
+[] Add CONTRIBUTING.md
 
-[ ] Add CODE_OF_CONDUCT.md
+[] Add CODE_OF_CONDUCT.md
