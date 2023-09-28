@@ -1,10 +1,27 @@
 import path from "path";
-import Cache, { type ICache, type CacheValue } from "./cache";
+import Cache, { type ICache } from "./cache";
 import Store from "./store";
+import { CacheValueStringManager } from "./cache_managers";
 
-export default class BidirectionalCache implements ICache {
-  protected __key_cache = new Cache(0, new Store());
-  protected __value_cache = new Cache(0, new Store());
+export interface NewBidirectionalCacheArgs {
+  max_size: number;
+  root_store_path: string;
+}
+
+export default class BidirectionalCache implements ICache<string> {
+  protected __key_cache = new Cache({
+    max_size: 0,
+    store: new Store(),
+    value_manager: CacheValueStringManager,
+  });
+
+  protected __value_cache = new Cache({
+    max_size: 0,
+    store: new Store(),
+    value_manager: CacheValueStringManager,
+  });
+
+  root_store_path: string;
 
   set max_size(n: number) {
     this.__key_cache.max_size = n;
@@ -23,8 +40,9 @@ export default class BidirectionalCache implements ICache {
     return this.__key_cache.store.ready && this.__value_cache.store.ready;
   }
 
-  constructor(max_size: number, public root_store_path: string) {
-    this.max_size = max_size;
+  constructor(args: NewBidirectionalCacheArgs) {
+    this.max_size = args.max_size;
+    this.root_store_path = args.root_store_path;
   }
 
   async setup(clean?: boolean) {
@@ -41,6 +59,13 @@ export default class BidirectionalCache implements ICache {
     );
   }
 
+  all() {
+    return {
+      keys: Array.from(this.__key_cache.keys()),
+      values: Array.from(this.__value_cache.keys()),
+    };
+  }
+
   getByKey(key: string) {
     return this.__key_cache.get(key);
   }
@@ -55,14 +80,16 @@ export default class BidirectionalCache implements ICache {
   }
 
   async set(key: string, value: string) {
-    await this.__key_cache.set(key, value);
+    const result = await this.__key_cache.set(key, value);
     await this.__value_cache.set(value, key);
+
+    return result;
   }
 
-  async save(keys: true | string[]) {
-    if (keys === true) {
-      await this.__key_cache.save(true);
-      await this.__value_cache.save(true);
+  async save(keys: "all" | string[]) {
+    if (keys === "all") {
+      await this.__key_cache.save("all");
+      await this.__value_cache.save("all");
 
       return;
     }
@@ -76,11 +103,7 @@ export default class BidirectionalCache implements ICache {
     }
   }
 
-  async update(
-    key: string,
-    new_value: NonNullable<CacheValue>,
-    sync_with_store?: boolean
-  ) {
+  async update(key: string, new_value: string, sync_with_store?: boolean) {
     const old_value = await this.__key_cache.get(key);
 
     const key_update = await this.__key_cache.update(

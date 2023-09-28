@@ -1,4 +1,4 @@
-import type { NullableCacheValue, RawCacheEntry, RawCachePair } from "./cache";
+import type { RawCacheEntry, RawCachePair } from "./cache";
 import { existsSync } from "fs";
 import { writeFile, readFile, readdir, mkdir, rm, stat } from "fs/promises";
 import path from "path";
@@ -6,15 +6,15 @@ import path from "path";
 export interface IStore {
   dest: string;
   readonly ready: boolean;
-  insert(pairs: RawCachePair[]): Promise<void>;
+  insert(pairs: RawCachePair<Buffer>[]): Promise<void>;
   /**
    * @param _skipCheck **INTERNAL USAGE ONLY**
    */
-  retrieve(key: string, _skipCheck?: boolean): Promise<NullableCacheValue>;
+  retrieve(key: string, _skipCheck?: boolean): Promise<Buffer | undefined>;
   check(key: string): string | false;
   setup(dest: string, clean?: boolean): Promise<void>;
   delete(key: string): Promise<void>;
-  load(size: number): Promise<RawCacheEntry[]>;
+  load(size: number): Promise<RawCacheEntry<Buffer>[]>;
 }
 
 class Store implements IStore {
@@ -55,14 +55,10 @@ class Store implements IStore {
 
     if (!file) return undefined;
 
-    const content = (await readFile(file)).toString();
-
-    if (!content) return undefined;
-
-    return content;
+    return readFile(file);
   }
 
-  async insert(pairs: RawCachePair[]) {
+  async insert(pairs: RawCachePair<Buffer>[]) {
     if (!this.dest) throw new Error("Cannot insert before setup");
 
     for (const pair of pairs) {
@@ -97,7 +93,7 @@ class Store implements IStore {
 
     return (await Promise.all(
       keys.map(async (key) => [key, (await this.retrieve(key, true))!])
-    )) as RawCacheEntry[];
+    )) as RawCacheEntry<Buffer>[];
   }
 }
 

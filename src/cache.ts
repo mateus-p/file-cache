@@ -1,22 +1,27 @@
-import { IStore } from "./store";
+import type { CacheValueManager } from "./cache_managers";
+import type { IStore } from "./store";
 
-export type CacheValue = string;
-export type RawCache = Record<string, NullableCacheValue>;
-export type NullableCacheValue = CacheValue | undefined;
-export type CacheObj = Record<string, CacheValue>;
-export type RawCacheEntry = [string, CacheValue];
-export type RawCachePair = { key: string; value: CacheValue };
+export type RawCache<Type> = Record<string, NullableCacheValue<Type>>;
+export type NullableCacheValue<Type> = Type | undefined;
+export type CacheObj<Type> = Record<string, Type>;
+export type RawCacheEntry<Type> = [string, Type];
+export type RawCachePair<Type> = { key: string; value: Type };
 
-export interface ICache {
+export enum CacheSetResult {
+  SET,
+  UPDATE,
+}
+
+export interface ICache<Type> {
   max_size: number;
 
   readonly ready: boolean;
 
   delete(key: string, include_store?: boolean): Promise<boolean>;
 
-  set(key: string, value: string): Promise<void>;
+  set(key: string, value: Type): Promise<CacheSetResult>;
 
-  get(key: string): Promise<NullableCacheValue>;
+  get(key: string): Promise<NullableCacheValue<Type>>;
 
   loadFromStore(): Promise<void>;
 
@@ -27,11 +32,11 @@ export interface ICache {
    */
   update(
     key: string,
-    new_value: NonNullable<CacheValue>,
+    new_value: NonNullable<Type>,
     sync_with_store?: boolean
   ): Promise<boolean>;
 
-  save(keys: string[] | true): Promise<void>;
+  save(keys: string[] | "all"): Promise<void>;
 
   /**
    * @param include_store default: `false`
@@ -39,15 +44,15 @@ export interface ICache {
   has(key: string, include_store?: boolean): boolean;
 }
 
-export default class Cache
-  implements ICache, Omit<Map<string, CacheValue>, "delete" | "set" | "get">
+export interface NewCacheArgs<Type> {
+  max_size: number;
+  store: IStore;
+  value_manager: CacheValueManager<Type>;
+}
+
+export default class Cache<Type>
+  implements ICache<Type>, Omit<Map<string, Type>, "delete" | "set" | "get">
 {
-  private __map: Map<string, string> = new Map();
-
-  get ready() {
-    return this.store.ready;
-  }
-
   //#region MAP BINDINGS
 
   clear() {
@@ -59,7 +64,7 @@ export default class Cache
   }
 
   forEach(
-    callbackfn: (value: string, key: string, map: Map<string, string>) => void,
+    callbackfn: (value: Type, key: string, map: Map<string, Type>) => void,
     thisArg?: any
   ) {
     this.__map.forEach(callbackfn, thisArg);
@@ -85,7 +90,20 @@ export default class Cache
 
   //#endregion MAP BINDINGS
 
-  constructor(public max_size: number, public store: IStore) {}
+  private __map: Map<string, Type> = new Map();
+  store: IStore;
+  max_size: number;
+  value_manager: CacheValueManager<Type>;
+
+  constructor(args: NewCacheArgs<Type>) {
+    this.store = args.store;
+    this.max_size = args.max_size;
+    this.value_manager = args.value_manager;
+  }
+
+  get ready() {
+    return this.store.ready;
+  }
 
   async delete(key: string, include_store?: boolean) {
     const deleted = this.__map.delete(key);
@@ -95,13 +113,17 @@ export default class Cache
     return deleted;
   }
 
-  async set(key: string, value: string) {
-    if (typeof key !== "string" || typeof value !== "string") {
-      throw new TypeError("Cache only accepts string keys/values");
+  async set(key: string, value: Type) {
+    const valueTest = this.value_manager.test(value);
+
+    if (typeof key !== "string" || !valueTest.pass) {
+      const errorMsg = valueTest.failReason || "Invalid Cache key/value";
+
+      throw new TypeError(errorMsg);
     }
 
     if (await this.update(key, value)) {
-      return;
+      return CacheSetResult.UPDATE;
     }
 
     const keys = Array.from(this.keys());
@@ -115,7 +137,7 @@ export default class Cache
         await this.store.insert([
           {
             key: last_key,
-            value: last_key_value,
+            value: this.value_manager.bake(last_key_value),
           },
         ]);
 
@@ -124,12 +146,12 @@ export default class Cache
 
     this.__map.set(key, value);
 
-    return;
+    return CacheSetResult.SET;
   }
 
   async get(key: string) {
     if (typeof key !== "string") {
-      throw new TypeError("Cache only accepts string keys/values");
+      throw new TypeError("Cache only accepts string keys");
     }
 
     const value_in_cache = this.__map.get(key);
@@ -138,9 +160,16 @@ export default class Cache
       return value_in_cache;
     }
 
-    const retrieved_value = await this.store.retrieve(key);
+    const fileCachePath = this.store.check(key);
 
-    if (retrieved_value) this.set(key, retrieved_value);
+    const retrieved_value = fileCachePath
+      ? await this.value_manager.revive({
+          buffer: () => this.store.retrieve(key) as Promise<Buffer>,
+          fileCachePath,
+        })
+      : undefined;
+
+    if (retrieved_value) await this.set(key, retrieved_value);
 
     return retrieved_value;
   }
@@ -149,7 +178,10 @@ export default class Cache
     const new_cache_entries = await this.store.load(this.max_size);
 
     for (const [key, value] of new_cache_entries) {
-      await this.set(key, value);
+      await this.set(
+        key,
+        await this.value_manager.revive({ buffer: () => value })
+      );
     }
   }
 
@@ -161,7 +193,7 @@ export default class Cache
     await this.store.insert(
       pKeys.map(([key, value]) => ({
         key: key,
-        value: value,
+        value: this.value_manager.bake(value),
       }))
     );
   }
@@ -169,13 +201,13 @@ export default class Cache
   /**
    * @param sync_with_store default: `false`
    */
-  async update(
-    key: string,
-    new_value: NonNullable<CacheValue>,
-    sync_with_store = false
-  ) {
-    if (typeof key !== "string" || typeof new_value !== "string") {
-      throw new TypeError("Cache only accepts string keys/values");
+  async update(key: string, new_value: Type, sync_with_store = false) {
+    const valueTest = this.value_manager.test(new_value);
+
+    if (typeof key !== "string" || !valueTest.pass) {
+      const errorMsg = valueTest.failReason || "Invalid Cache key/value";
+
+      throw new TypeError(errorMsg);
     }
 
     if (!this.has(key, sync_with_store)) {
@@ -184,13 +216,16 @@ export default class Cache
 
     this.__map.set(key, new_value);
 
-    if (sync_with_store) await this.store.insert([{ key, value: new_value }]);
+    if (sync_with_store)
+      await this.store.insert([
+        { key, value: this.value_manager.bake(new_value) },
+      ]);
 
     return true;
   }
 
-  async save(keys: string[] | true) {
-    if (keys === true) {
+  async save(keys: string[] | "all") {
+    if (keys === "all") {
       keys = Array.from(this.keys());
     }
 
@@ -202,7 +237,7 @@ export default class Cache
       await this.store.insert([
         {
           key,
-          value,
+          value: this.value_manager.bake(value),
         },
       ]);
     }
@@ -214,7 +249,7 @@ export default class Cache
    */
   has(key: string, include_store = false) {
     if (typeof key !== "string")
-      throw new TypeError("Cache only accepts string keys/values");
+      throw new TypeError("Cache only accepts string keys");
 
     return this.__map.has(key) || (include_store && !!this.store.check(key));
   }

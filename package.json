@@ -1,6 +1,6 @@
 {
   "name": "@mateus-pires/file-cache",
-  "version": "0.1.2",
+  "version": "1.0.0-dev.1",
   "main": "dist/index.js",
   "author": "Mateus Pires",
   "files": [
@@ -32,6 +32,8 @@
     "url": "https://github.com/mateus-p/file-cache/issues"
   },
   "homepage": "https://github.com/mateus-p/file-cache#readme",
-  "description": ""
+  "description": "",
+  "peerDependencies": {
+    "zod": "^3.22.2"
+  }
 }
-
