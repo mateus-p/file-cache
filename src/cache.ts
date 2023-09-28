@@ -1,4 +1,4 @@
-import type { CacheValueManager } from "./cache_managers";
+import type { CacheValueManager } from "./cache_managers/types";
 import type { IStore } from "./store";
 
 export type RawCache<Type> = Record<string, NullableCacheValue<Type>>;

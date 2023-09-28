@@ -1,7 +1,7 @@
 import path from "path";
 import Cache, { type ICache } from "./cache";
 import Store from "./store";
-import { CacheValueStringManager } from "./cache_managers";
+import CacheValueStringManager from "./cache_managers/string";
 
 export interface NewBidirectionalCacheArgs {
   max_size: number;

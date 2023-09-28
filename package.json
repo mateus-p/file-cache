@@ -1,6 +1,6 @@
 {
   "name": "@mateus-pires/file-cache",
-  "version": "1.0.0-dev.1",
+  "version": "1.0.0-dev.2",
   "author": "Mateus Pires",
   "files": [
     "dist"
@@ -12,7 +12,7 @@
   },
   "exports": {
     ".": "./dist/index.js",
-    "./cache_managers": "./dist/cache_managers/"
+    "./cache_managers/": "./dist/cache_managers/"
   },
   "license": "MIT",
   "devDependencies": {
