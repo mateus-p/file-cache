@@ -1,36 +1,14 @@
 import type {
-  ZodArray,
+  ZodString,
+  ZodNumber,
   ZodBoolean,
   ZodNull,
-  ZodNumber,
+  ZodArray,
   ZodObject,
-  ZodString,
-  ZodType,
-  infer as zodInfer,
+  TypeOf,
 } from "zod";
+import { CacheValueManager } from "./types";
 import { serialize, deserialize } from "v8";
-
-export interface CacheValueManager<Type> {
-  revive(args: {
-    fileCachePath?: string;
-    buffer: () => Promise<Buffer> | Buffer;
-  }): Promise<Type> | Type;
-
-  test(value: any): { pass: boolean; failReason?: string };
-
-  bake(value: Type): Buffer;
-}
-
-export const CacheValueStringManager: CacheValueManager<string> = {
-  revive: async ({ buffer }) => {
-    return (await buffer()).toString();
-  },
-  bake: (value) => Buffer.from(value, "utf-8"),
-  test: (value) => ({
-    pass: typeof value == "string",
-    failReason: typeof value != "string" ? "value is not a string" : undefined,
-  }),
-};
 
 type ZodSerializable =
   | ZodString
@@ -43,9 +21,9 @@ type ZodSerializableObject = {
   [key: string]: ZodSerializable | ZodObject<ZodSerializableObject>;
 };
 
-export function createCacheValueZodManager<
+export default function createZodManager<
   Type extends ZodSerializable | ZodObject<ZodSerializableObject>
->(obj: Type): CacheValueManager<zodInfer<Type>> {
+>(obj: Type): CacheValueManager<TypeOf<Type>> {
   return {
     bake: (value) => serialize(value),
     revive: async ({ buffer }) => {

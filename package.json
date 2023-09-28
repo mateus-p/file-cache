@@ -1,7 +1,6 @@
 {
   "name": "@mateus-pires/file-cache",
   "version": "1.0.0-dev.1",
-  "main": "dist/index.js",
   "author": "Mateus Pires",
   "files": [
     "dist"
@@ -10,6 +9,10 @@
   "repository": {
     "url": "git+https://github.com/mateus-p/file-cache.git",
     "type": "git"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./cache_managers": "./dist/cache_managers/"
   },
   "license": "MIT",
   "devDependencies": {
@@ -37,3 +40,4 @@
     "zod": "^3.22.2"
   }
 }
+
