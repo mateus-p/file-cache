@@ -31,7 +31,7 @@ export type ZodSerializableObject = {
  * Powered by `node:v8` and `zod` (as a peer dependency, please install it if you use it), with this value manager it is possible to save any serializable object, as well as perform type checking at runtime
  *
  * @example
- * import { CacheManagers } from "@mateus-pires/file-cache/cache_managers/zod";
+ * import { CacheManagers } from "@mateus-pires/file-cache";
  * import z from "zod";
  *
  * const ZodManager = CacheManagers.Zod(
