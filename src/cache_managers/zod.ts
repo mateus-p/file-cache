@@ -8,9 +8,11 @@ import type {
   ZodBigInt,
   ZodUndefined,
   TypeOf,
+  SafeParseReturnType,
 } from "zod";
 import { CacheValueManager } from "./types";
 import { serialize, deserialize } from "v8";
+import { inspect } from "util";
 
 export type ZodSerializable =
   | ZodString
@@ -43,7 +45,11 @@ export type ZodSerializableObject = {
  */
 export default function createZodManager<
   Type extends ZodSerializable | ZodObject<ZodSerializableObject>
->(obj: Type): CacheValueManager<TypeOf<Type>> {
+>(
+  obj: Type
+): CacheValueManager<TypeOf<Type>> & {
+  zodTest: (value: any) => SafeParseReturnType<TypeOf<Type>, TypeOf<Type>>;
+} {
   return {
     bake: (value) => serialize(value),
     revive: async ({ buffer }) => {
@@ -54,8 +60,13 @@ export default function createZodManager<
 
       return {
         pass: parsed.success,
-        failReason: !parsed.success ? parsed.error.toString() : undefined,
+        failReason: !parsed.success
+          ? inspect(parsed.error, false, 200, true)
+          : undefined,
       };
+    },
+    zodTest: (value) => {
+      return obj.safeParse(value);
     },
   };
 }
