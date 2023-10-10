@@ -42,6 +42,8 @@ const cache = await Cache.start({
 });
 ```
 
+### Cache Managers
+
 The type of `value_manager` is intrinsically linked to the type of this Cache instance, since it is responsible for validating the insertion of new values, as well as the transformation to/from the file system.
 
 ```ts

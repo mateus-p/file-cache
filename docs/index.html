@@ -25,7 +25,7 @@
 <p>This can also be achieved using the static <code>start</code> function.</p>
 <pre><code class="language-ts"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">Cache</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&quot;@mateus-pires/file-cache&quot;</span><span class="hl-1">;</span><br/><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">cache</span><span class="hl-1"> = </span><span class="hl-0">await</span><span class="hl-1"> </span><span class="hl-2">Cache</span><span class="hl-1">.</span><span class="hl-6">start</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">max_size:</span><span class="hl-1"> </span><span class="hl-7">500</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-2">store:</span><span class="hl-1"> { </span><span class="hl-2">dest:</span><span class="hl-1"> </span><span class="hl-3">&quot;./cache-dir&quot;</span><span class="hl-1"> },</span><br/><span class="hl-1">  </span><span class="hl-2">value_manager:</span><span class="hl-1"> { ... } </span><span class="hl-0">as</span><span class="hl-1"> </span><span class="hl-8">CacheValueManager</span><span class="hl-1">,</span><br/><span class="hl-1">});</span>
 </code><button>Copy</button></pre>
-<p>The type of <code>value_manager</code> is intrinsically linked to the type of this Cache instance, since it is responsible for validating the insertion of new values, as well as the transformation to/from the file system.</p>
+<a id="md:cache-managers" class="tsd-anchor"></a><h3><a href="#md:cache-managers">Cache Managers</a></h3><p>The type of <code>value_manager</code> is intrinsically linked to the type of this Cache instance, since it is responsible for validating the insertion of new values, as well as the transformation to/from the file system.</p>
 <pre><code class="language-ts"><span class="hl-9">// cache: Cache&lt;string&gt;</span><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">cache</span><span class="hl-1"> = </span><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-6">Cache</span><span class="hl-1">({ </span><span class="hl-2">value_manager:</span><span class="hl-1"> { ... } </span><span class="hl-0">as</span><span class="hl-1"> </span><span class="hl-8">CacheValueManager</span><span class="hl-1">&lt;</span><span class="hl-8">string</span><span class="hl-1">&gt; })</span>
 </code><button>Copy</button></pre>
 <p>Cache only supports <code>Key (check API reference)</code> keys, but the value can be virtually anything, as long as it is possible to save it in a file.</p>
@@ -96,6 +96,7 @@
 <li>
 <ul>
 <li><a href="#md:cache"><span>Cache</span></a></li>
+<li><a href="#md:cache-managers"><span>Cache <wbr/>Managers</span></a></li>
 <li>
 <ul>
 <li><a href="#md:string"><span>String</span></a></li>
