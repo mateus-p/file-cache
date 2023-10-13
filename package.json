@@ -36,7 +36,8 @@
   },
   "scripts": {
     "prepack": "rmdir /s /q dist && tsc",
-    "update-docs": "rmdir /s /q docs && typedoc src/index.ts"
+    "docs": "rmdir /s /q docs && typedoc src/index.ts",
+    "bench": "tsc && node benchmark"
   },
   "dependencies": {
     "glob": "^10.3.10",
