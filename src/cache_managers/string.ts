@@ -12,6 +12,7 @@ const StringManager: CacheValueManager<string> = {
     pass: typeof value == "string",
     failReason: typeof value != "string" ? "value is not a string" : undefined,
   }),
+  toJSON: () => "[[BuiltInManagers#String]]",
 };
 
 export default StringManager;

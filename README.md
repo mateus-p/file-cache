@@ -2,7 +2,9 @@
 
 > This README is a work in progress
 
-[API Reference](https://mateus-p.github.io/file-cache/)
+[Benchmarks](./BENCHMARK.md)
+
+[API Documentation](https://mateus-p.github.io/file-cache/)
 
 File Cache uses `Map`, `fs/promises` and some "clever" tricks to handle `fs <=> memory` data sharing.
 
@@ -51,7 +53,7 @@ The type of `value_manager` is intrinsically linked to the type of this Cache in
 const cache = new Cache({ value_manager: { ... } as CacheValueManager<string> })
 ```
 
-Cache only supports `Key (check API reference)` keys, but the value can be virtually anything, as long as it is possible to save it in a file.
+Cache only supports `Key (check API docs)` keys, but the value can be virtually anything, as long as it is possible to save it in a file.
 
 File Cache ships with three built-in value managers:
 

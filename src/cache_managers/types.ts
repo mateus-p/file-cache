@@ -7,4 +7,9 @@ export interface CacheValueManager<Type> {
   test(value: any): { pass: boolean; failReason?: string };
 
   bake(value: Type): Buffer;
+
+  /**
+   * For benchmark readability.
+   */
+  toJSON?(): string;
 }

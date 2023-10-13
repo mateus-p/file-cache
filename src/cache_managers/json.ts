@@ -19,6 +19,7 @@ const JSONManager: CacheValueManager<Record<string, any>> = {
       return { pass: false, failReason: inspect(err) };
     }
   },
+  toJSON: () => "[[BuiltInManagers#JSON]]",
 };
 
 export default JSONManager;
