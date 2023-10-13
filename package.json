@@ -35,7 +35,7 @@
     "typescript": "^5.2.2"
   },
   "scripts": {
-    "prepack": "rmdir /s /q dist docs && tsc && typedoc src/index.ts && node benchmark"
+    "prepack": "rmdir /s /q dist docs && tsc && typedoc src/index.ts"
   },
   "dependencies": {
     "glob": "^10.3.10",
