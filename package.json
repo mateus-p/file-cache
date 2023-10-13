@@ -1,6 +1,6 @@
 {
   "name": "@mateus-pires/file-cache",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Mateus Pires",
   "files": [
     "dist"
@@ -35,7 +35,8 @@
     "typescript": "^5.2.2"
   },
   "scripts": {
-    "prepack": "rmdir /s /q dist docs && tsc && typedoc src/index.ts"
+    "prepack": "rmdir /s /q dist && tsc",
+    "update-docs": "rmdir /s /q docs && typedoc src/index.ts"
   },
   "dependencies": {
     "glob": "^10.3.10",
