@@ -2,7 +2,7 @@
 
 ## Metadata
 
-- **Source**: `@mateus-pires/file-cache@1.0.0`
+- **Source**: `@mateus-pires/file-cache@1.0.1`
 - **Benchmark Engine**: `tinybench@^2.5.1`
 - **Os**: `Windows_NT`
 - **Processor Identifier**: `Intel64 Family 6 Model 126 Stepping 5, GenuineIntel`
@@ -14,12 +14,12 @@
 
 ## Benchmark Results
 
-| Task Name               | ops/sec   | Average Time (ns)  | Margin | Samples | Args                                                               |
-| :---------------------- | :-------- | :----------------- | :----- | :------ | :----------------------------------------------------------------- |
-| Cache#set (no overflow) | 19.457    | 51393.20648035067  | ±4.10% | 9730    | `{"max_size":500000,"value_manager":"[[BuiltInManagers#String]]"}` |
-| Cache#set (overflow)    | 170       | 5857288.372031478  | ±3.36% | 86      | `{"max_size":1,"value_manager":"[[BuiltInManagers#String]]"}`      |
-| Cache#get (from map)    | 4.066.623 | 245.9042222250495  | ±2.17% | 2033312 | `{"max_size":2,"value_manager":"[[BuiltInManagers#String]]"}`      |
-| Cache#get (from store)  | 663       | 1506156.3248914408 | ±1.79% | 332     | `{"max_size":1,"value_manager":"[[BuiltInManagers#String]]"}`      |
+| Task Name               | ops/sec   | Average Time (ns)  | Margin  | Samples | Args                                                               |
+| :---------------------- | :-------- | :----------------- | :------ | :------ | :----------------------------------------------------------------- |
+| Cache#set (no overflow) | 18.295    | 54656.799411898784 | ±4.35%  | 9148    | `{"max_size":500000,"value_manager":"[[BuiltInManagers#String]]"}` |
+| Cache#set (overflow)    | 111       | 8963616.073131561  | ±34.57% | 56      | `{"max_size":1,"value_manager":"[[BuiltInManagers#String]]"}`      |
+| Cache#get (from map)    | 3.908.638 | 255.8435823182757  | ±10.87% | 1954405 | `{"max_size":2,"value_manager":"[[BuiltInManagers#String]]"}`      |
+| Cache#get (from store)  | 642       | 1556562.7326506267 | ±1.99%  | 322     | `{"max_size":1,"value_manager":"[[BuiltInManagers#String]]"}`      |
 
 
 ## Todo
