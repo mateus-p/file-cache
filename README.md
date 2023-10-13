@@ -1,7 +1,5 @@
 # File Cache
 
-> This README is a work in progress
-
 [Benchmarks](./BENCHMARK.md)
 
 [API Documentation](https://mateus-p.github.io/file-cache/)
@@ -110,7 +108,7 @@ const manager: CacheValueManager<AnythingYouWant> = { ... }
 
 ### BidirectionalCache
 
-**This functionality was removed on `v1.0.0-dev.3`.**
+> **This functionality was removed on `v1.0.0-dev.3`.**
 
 ### Store
 
@@ -149,8 +147,8 @@ await Util.waitUntil(() => x == 2);
 
 ## Roadmap
 
-- [ ] Complete README.md
+- [x] Complete README.md
 - [ ] Add tests
-- [ ] Make sure it is a stable v1
+- [x] Make sure it is a stable v1
 - [ ] Add CONTRIBUTING.md
 - [ ] Add CODE_OF_CONDUCT.md
