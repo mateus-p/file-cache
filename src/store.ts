@@ -126,6 +126,8 @@ export class Store<Ready extends boolean = false> implements IStore<Ready> {
 
     await rm(file);
 
+    await rm(file + meta_key);
+
     return true;
   }
 
