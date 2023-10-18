@@ -2,24 +2,23 @@
 
 ## Metadata
 
-- **Source**: `@mateus-pires/file-cache@1.0.1`
+- **Source**: `@mateus-pires/file-cache@1.1.0`
 - **Benchmark Engine**: `tinybench@^2.5.1`
 - **Os**: `Windows_NT`
 - **Processor Identifier**: `Intel64 Family 6 Model 126 Stepping 5, GenuineIntel`
 - **Processor Architecture**: `AMD64`
 - **Number Of Processors**: `8`
-- **Used Drive**: `SanDisk SDSSDA 2.5" 240gb`
-- **Node Version**: `v18.18.1
-`
+- **Used Drive**: `NVMe KINGSTON SNVS500`
+- **Node Version**: `v18.18.1`
 
 ## Benchmark Results
 
-| Task Name               | ops/sec   | Average Time (ns)  | Margin  | Samples | Args                                                               |
-| :---------------------- | :-------- | :----------------- | :------ | :------ | :----------------------------------------------------------------- |
-| Cache#set (no overflow) | 18.295    | 54656.799411898784 | ±4.35%  | 9148    | `{"max_size":500000,"value_manager":"[[BuiltInManagers#String]]"}` |
-| Cache#set (overflow)    | 111       | 8963616.073131561  | ±34.57% | 56      | `{"max_size":1,"value_manager":"[[BuiltInManagers#String]]"}`      |
-| Cache#get (from map)    | 3.908.638 | 255.8435823182757  | ±10.87% | 1954405 | `{"max_size":2,"value_manager":"[[BuiltInManagers#String]]"}`      |
-| Cache#get (from store)  | 642       | 1556562.7326506267 | ±1.99%  | 322     | `{"max_size":1,"value_manager":"[[BuiltInManagers#String]]"}`      |
+| Task Name               | ops/sec   | Average Time (ns)  | Margin | Samples | Args                                                               |
+| :---------------------- | :-------- | :----------------- | :----- | :------ | :----------------------------------------------------------------- |
+| Cache#set (no overflow) | 21.981    | 45492.8716419393   | ±3.05% | 10998   | `{"max_size":500000,"value_manager":"[[BuiltInManagers#String]]"}` |
+| Cache#set (overflow)    | 224       | 4463930.087015692  | ±8.06% | 113     | `{"max_size":1,"value_manager":"[[BuiltInManagers#String]]"}`      |
+| Cache#get (from map)    | 4.329.049 | 230.99760742051797 | ±2.15% | 2164525 | `{"max_size":2,"value_manager":"[[BuiltInManagers#String]]"}`      |
+| Cache#get (from store)  | 1.349     | 741148.8891089404  | ±1.95% | 675     | `{"max_size":1,"value_manager":"[[BuiltInManagers#String]]"}`      |
 
 
 ## Todo
@@ -35,3 +34,6 @@
 ## Future Benchmarks
 
 - `Store`
+- `CacheManagers#String`
+- `CacheManagers#JSON`
+- `CacheManagers#Zod`
