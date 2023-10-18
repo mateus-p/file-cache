@@ -2,7 +2,7 @@
 
 ## Metadata
 
-- **Source**: `@mateus-pires/file-cache@1.1.0`
+- **Source**: `@mateus-pires/file-cache@1.1.1`
 - **Benchmark Engine**: `tinybench@^2.5.1`
 - **Os**: `Windows_NT`
 - **Processor Identifier**: `Intel64 Family 6 Model 126 Stepping 5, GenuineIntel`
@@ -15,10 +15,10 @@
 
 | Task Name               | ops/sec   | Average Time (ns)  | Margin | Samples | Args                                                               |
 | :---------------------- | :-------- | :----------------- | :----- | :------ | :----------------------------------------------------------------- |
-| Cache#set (no overflow) | 21.981    | 45492.8716419393   | ±3.05% | 10998   | `{"max_size":500000,"value_manager":"[[BuiltInManagers#String]]"}` |
-| Cache#set (overflow)    | 224       | 4463930.087015692  | ±8.06% | 113     | `{"max_size":1,"value_manager":"[[BuiltInManagers#String]]"}`      |
-| Cache#get (from map)    | 4.329.049 | 230.99760742051797 | ±2.15% | 2164525 | `{"max_size":2,"value_manager":"[[BuiltInManagers#String]]"}`      |
-| Cache#get (from store)  | 1.349     | 741148.8891089404  | ±1.95% | 675     | `{"max_size":1,"value_manager":"[[BuiltInManagers#String]]"}`      |
+| Cache#set (no overflow) | 20.943    | 47748.50088777901  | ±2.90% | 10474   | `{"max_size":500000,"value_manager":"[[BuiltInManagers#String]]"}` |
+| Cache#set (overflow)    | 371       | 2693993.0477563073 | ±2.77% | 187     | `{"max_size":1,"value_manager":"[[BuiltInManagers#String]]"}`      |
+| Cache#get (from map)    | 3.470.763 | 288.1210074912593  | ±2.56% | 1735382 | `{"max_size":2,"value_manager":"[[BuiltInManagers#String]]"}`      |
+| Cache#get (from store)  | 1.310     | 762950.4578142632  | ±1.96% | 656     | `{"max_size":1,"value_manager":"[[BuiltInManagers#String]]"}`      |
 
 
 ## Todo
