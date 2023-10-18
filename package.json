@@ -22,7 +22,8 @@
     "file",
     "v8",
     "zod",
-    "map"
+    "map",
+    "node"
   ],
   "license": "MIT",
   "devDependencies": {
@@ -44,7 +45,6 @@
   },
   "dependencies": {
     "glob": "^10.3.10",
-    "tslib": "^2.6.2",
     "uuid": "^9.0.1"
   },
   "types": "./dist/index.d.ts",
@@ -52,7 +52,7 @@
     "url": "https://github.com/mateus-p/file-cache/issues"
   },
   "homepage": "https://github.com/mateus-p/file-cache#readme",
-  "description": "",
+  "description": "powerfull caching tools",
   "peerDependencies": {
     "zod": "^3.22.4"
   }
