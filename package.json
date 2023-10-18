@@ -47,7 +47,7 @@
     "glob": "^10.3.10",
     "uuid": "^9.0.1"
   },
-  "types": "./dist/index.d.ts",
+  "types": "./src/index.d.ts",
   "bugs": {
     "url": "https://github.com/mateus-p/file-cache/issues"
   },
