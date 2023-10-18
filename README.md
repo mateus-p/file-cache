@@ -1,10 +1,8 @@
 # File Cache
 
-[Benchmarks](./BENCHMARK.md)
-
-[API Documentation](https://mateus-p.github.io/file-cache/)
-
 File Cache uses `Map`, `fs/promises` and some "clever" tricks to handle `fs <=> memory` data sharing.
+
+[Benchmarks](./BENCHMARK.md) | [API Documentation](https://mateus-p.github.io/file-cache/)
 
 It is being designed to be a very useful/convenient caching tool.
 
@@ -26,6 +24,12 @@ const cache = new Cache({
   store,
   value_manager: { ... } as CacheValueManager,
 });
+
+// Cache exposes its internal map iterator, so it can be used like so:
+
+const cache_entries = Array.from(cache);
+
+for(const [key, value] of cache) {}
 ```
 
 In the example above, we are creating a new `Store` instance, configuring it to place the cache files in `./cache-dir` and then creating a `Cache` instance, with a maximum size of 500 items.
@@ -129,6 +133,11 @@ await store.insert([
     value: Buffer.from("world"),
   },
 ]);
+
+// Store has an asyncIterator built in:
+
+for await (const metadata of store) {
+}
 ```
 
 ### Util
