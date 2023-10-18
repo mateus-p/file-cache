@@ -65,9 +65,7 @@ export declare interface ICache<Type> {
   has(key: Key, include_store?: boolean): boolean;
 
   /**
-   * Expose [`docs/Store#query`](./Store.html#query)
-   *
-   * Expose [`Store#query`](./store.ts)
+   * Exposes {@link Store.query}
    */
   readonly storeQuery: QueryBind<MetadataSource, Metadata>;
 
