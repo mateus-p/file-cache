@@ -1,9 +1,10 @@
 {
   "name": "@mateus-pires/file-cache",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "author": "Mateus Pires",
   "files": [
-    "dist"
+    "src",
+    "BENCHMARK.md"
   ],
   "private": false,
   "repository": {
@@ -11,7 +12,10 @@
     "type": "git"
   },
   "exports": {
-    ".": "./dist/index.js"
+    ".": "./src/index.js"
+  },
+  "engines": {
+    "node": ">=12"
   },
   "keywords": [
     "cache",
@@ -35,9 +39,8 @@
     "typescript": "^5.2.2"
   },
   "scripts": {
-    "prepack": "rmdir /s /q dist && tsc",
-    "docs": "rmdir /s /q docs && typedoc src/index.ts",
-    "bench": "tsc && node benchmark"
+    "docs": "rmdir /s /q docs && typedoc src/index.d.ts",
+    "bench": "node benchmarks"
   },
   "dependencies": {
     "glob": "^10.3.10",
@@ -54,4 +57,3 @@
     "zod": "^3.22.4"
   }
 }
-

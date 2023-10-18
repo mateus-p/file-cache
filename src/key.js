@@ -1,14 +1,7 @@
-import { v1, validate } from "uuid";
+const { v1, validate } = require("uuid");
 
-export interface KeySouce {
-  id: string;
-  name: string;
-  created_at_ts: number;
-  updated_at_ts: number;
-}
-
-export class Key implements KeySouce {
-  #key_name: string;
+class Key {
+  #key_name = "";
   #created_at_ts = Date.now();
   #updated_at_ts = Date.now();
   #id = v1();
@@ -29,17 +22,17 @@ export class Key implements KeySouce {
     return this.#key_name;
   }
 
-  set name(new_name: string) {
+  set name(new_name) {
     this.#key_name = new_name;
 
     this.#updated_at_ts = Date.now();
   }
 
-  constructor(name: string) {
+  constructor(name) {
     this.#key_name = name;
   }
 
-  toSource(): KeySouce {
+  toSource() {
     return {
       id: this.#id,
       name: this.#key_name,
@@ -48,8 +41,8 @@ export class Key implements KeySouce {
     };
   }
 
-  static fromSource(source: KeySouce) {
-    if (!validate(source.id)) throw new Error("source id is not an uuid");
+  static fromSource(source) {
+    if (!validate(source.id)) throw new Error("source#id is not an uuid");
 
     const key = new this(source.name);
 
@@ -60,3 +53,5 @@ export class Key implements KeySouce {
     return key;
   }
 }
+
+module.exports.Key = Key;

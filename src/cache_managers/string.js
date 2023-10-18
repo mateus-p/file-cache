@@ -1,9 +1,4 @@
-import { CacheValueManager } from "./types";
-
-/**
- * This value manager handles string cache values, formatted in UTF-8.
- */
-const StringManager: CacheValueManager<string> = {
+const StringManager = {
   revive: async ({ buffer }) => {
     return (await buffer()).toString("utf-8");
   },
@@ -15,4 +10,4 @@ const StringManager: CacheValueManager<string> = {
   toJSON: () => "[[BuiltInManagers#String]]",
 };
 
-export default StringManager;
+module.exports.StringManager = StringManager;

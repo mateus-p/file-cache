@@ -1,9 +1,7 @@
-import type { z } from "zod";
+import { z } from "zod";
 import { CacheValueManager } from "./types";
-import { serialize, deserialize } from "v8";
-import { inspect } from "util";
 
-export type ZodSerializable =
+export declare type ZodSerializable =
   | z.ZodString
   | z.ZodNumber
   | z.ZodBoolean
@@ -14,8 +12,14 @@ export type ZodSerializable =
   | z.ZodNullable<ZodSerializable>
   | z.ZodArray<ZodSerializable | z.ZodObject<ZodSerializableObject>>;
 
-export type ZodSerializableObject = {
+export declare type ZodSerializableObject = {
   [key: string]: ZodSerializable | z.ZodObject<ZodSerializableObject>;
+};
+
+export declare type ZodManager<
+  Type extends ZodSerializable | z.ZodObject<ZodSerializableObject>
+> = CacheValueManager<z.infer<Type>> & {
+  zodTest: (value: any) => z.SafeParseReturnType<z.infer<Type>, z.infer<Type>>;
 };
 
 /**
@@ -34,31 +38,6 @@ export type ZodSerializableObject = {
  * // cache: Cache<{ a?: string; b: number }>
  * const cache = new Cache({ value_manager: ZodManager });
  */
-export default function createZodManager<
+export declare function createZodManager<
   Type extends ZodSerializable | z.ZodObject<ZodSerializableObject>
->(
-  obj: Type
-): CacheValueManager<z.infer<Type>> & {
-  zodTest: (value: any) => z.SafeParseReturnType<z.infer<Type>, z.infer<Type>>;
-} {
-  return {
-    bake: (value) => serialize(value),
-    revive: async ({ buffer }) => {
-      return deserialize(await buffer());
-    },
-    test: (value) => {
-      const parsed = obj.safeParse(value);
-
-      return {
-        pass: parsed.success,
-        failReason: !parsed.success
-          ? inspect(parsed.error, false, 200, true)
-          : undefined,
-      };
-    },
-    toJSON: () => "[[BuiltInManagers#Zod]]",
-    zodTest: (value) => {
-      return obj.safeParse(value);
-    },
-  };
-}
+>(obj: Type): ZodManager<Type>;

@@ -1,16 +1,9 @@
-import { Key, KeySouce } from "./key";
+"use strict";
 
-export interface MetadataSource {
-  key: KeySouce;
-  created_at_ts: number;
-  modified_at_ts: number;
-}
+const key = require("./key");
+const v8 = require("v8");
 
-/**
- * This class represents the metadata of files managed by `Store`,
- * that is, it is implemented and controlled by `Store`.
- */
-export class Metadata implements MetadataSource {
+class Metadata {
   #created_at_ts = Date.now();
   #modified_at_ts = this.#created_at_ts;
 
@@ -26,7 +19,7 @@ export class Metadata implements MetadataSource {
     this.#modified_at_ts = Date.now();
   }
 
-  toSource(): MetadataSource {
+  toSource() {
     return {
       key: this.key.toSource(),
       created_at_ts: this.#created_at_ts,
@@ -34,8 +27,11 @@ export class Metadata implements MetadataSource {
     };
   }
 
-  static fromSource(source: MetadataSource) {
-    const meta = new this(Key.fromSource(source.key));
+  /**
+   * @param {key.KeySouce} source
+   */
+  static fromSource(source) {
+    const meta = new this(key.Key.fromSource(source.key));
 
     meta.#created_at_ts = source.created_at_ts;
     meta.#modified_at_ts = source.modified_at_ts;
@@ -43,5 +39,20 @@ export class Metadata implements MetadataSource {
     return meta;
   }
 
-  constructor(public key: Key) {}
+  /**
+   * @param {Buffer} buffer
+   */
+  static fromBuffer(buffer) {
+    return this.fromSource(v8.deserialize(buffer));
+  }
+
+  /**
+   *
+   * @param {key.Key} key
+   */
+  constructor(key) {
+    this.key = key;
+  }
 }
+
+module.exports.Metadata = Metadata;

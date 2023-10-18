@@ -1,4 +1,4 @@
-export interface CacheValueManager<Type> {
+export declare interface CacheValueManager<Type> {
   revive(args: {
     fileCachePath?: string;
     buffer: () => Promise<Buffer> | Buffer;

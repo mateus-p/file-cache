@@ -1,10 +1,6 @@
-import { CacheValueManager } from "./types";
-import { inspect } from "util";
+const { inspect } = require("util");
 
-/**
- * This value manager handles JSON string cache values, formatted in UTF-8.
- */
-const JSONManager: CacheValueManager<Record<string, any>> = {
+const JSONManager = {
   revive: async ({ buffer }) => {
     const buf_string = (await buffer()).toString("utf-8");
     return JSON.parse(buf_string);
@@ -22,4 +18,4 @@ const JSONManager: CacheValueManager<Record<string, any>> = {
   toJSON: () => "[[BuiltInManagers#JSON]]",
 };
 
-export default JSONManager;
+module.exports.JSONManager = JSONManager;
