@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "moduleResolution": "Node16",
+    "module": "NodeNext",
+    "target": "ES2020",
+  }
+}
