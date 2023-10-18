@@ -19,7 +19,7 @@
 <h4>Type Parameters</h4>
 <ul class="tsd-type-parameter-list">
 <li>
-<h4><span class="tsd-kind-type-parameter">Ready</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">boolean</span> = <span class="tsd-signature-type">false</span></h4></li></ul></section> 
+<h4><span class="tsd-kind-type-parameter">Ready</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">boolean</span></h4></li></ul></section> 
 <section class="tsd-panel tsd-hierarchy">
 <h4>Hierarchy</h4>
 <ul class="tsd-hierarchy">
@@ -27,9 +27,9 @@
 <section class="tsd-panel">
 <h4>Implements</h4>
 <ul class="tsd-hierarchy">
-<li><a href="../interfaces/IStore.html" class="tsd-signature-type tsd-kind-interface">IStore</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">Ready</span><span class="tsd-signature-symbol">&gt;</span></li></ul></section><aside class="tsd-sources">
+<li><span class="tsd-signature-type ">AsyncIterable</span><span class="tsd-signature-symbol">&lt;</span><a href="Metadata.html" class="tsd-signature-type tsd-kind-class">Metadata</a><span class="tsd-signature-symbol">&gt;</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/store.ts#L90">src/store.ts:90</a></li></ul></aside>
+<li>Defined in src/store.d.ts:11</li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -41,17 +41,14 @@
 </div></section>
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Properties</h3>
-<div class="tsd-index-list"><a href="Store.html#_ready" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>#ready</span></a>
-<a href="Store.html#dest" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>dest</span></a>
+<div class="tsd-index-list"><a href="Store.html#dest" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>dest</span></a>
 <a href="Store.html#query" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>query</span></a>
-</div></section>
-<section class="tsd-index-section">
-<h3 class="tsd-index-heading">Accessors</h3>
-<div class="tsd-index-list"><a href="Store.html#ready" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-262144"></use></svg><span>ready</span></a>
+<a href="Store.html#ready" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>ready</span></a>
 </div></section>
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Methods</h3>
-<div class="tsd-index-list"><a href="Store.html#check" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>check</span></a>
+<div class="tsd-index-list"><a href="Store.html#_asyncIterator_" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>[async<wbr/>Iterator]</span></a>
+<a href="Store.html#check" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>check</span></a>
 <a href="Store.html#delete" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>delete</span></a>
 <a href="Store.html#insert" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>insert</span></a>
 <a href="Store.html#load" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>load</span></a>
@@ -73,49 +70,51 @@
 <h4>Type Parameters</h4>
 <ul class="tsd-type-parameter-list">
 <li>
-<h4><span class="tsd-kind-type-parameter">Ready</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">boolean</span> = <span class="tsd-signature-type">false</span></h4></li></ul></section>
+<h4><span class="tsd-kind-type-parameter">Ready</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">boolean</span></h4></li></ul></section>
 <h4 class="tsd-returns-title">Returns <a href="Store.html" class="tsd-signature-type tsd-kind-class">Store</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">Ready</span><span class="tsd-signature-symbol">&gt;</span></h4></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Properties</h2>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="_ready" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>#ready</span><a href="#_ready" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<div class="tsd-signature"><span class="tsd-kind-property">#ready</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type tsd-kind-type-parameter">Ready</span><span class="tsd-signature-symbol"> = ...</span></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/store.ts#L91">src/store.ts:91</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="dest" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>dest</span><a href="#dest" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<div class="tsd-signature"><span class="tsd-kind-property">dest</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type tsd-kind-type-parameter">Ready</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">true</span><br/><span>    </span><span class="tsd-signature-symbol">? </span><span class="tsd-signature-type">string</span><br/><span>    </span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> = ...</span></div>
+<div class="tsd-signature"><span class="tsd-kind-property">dest</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type tsd-kind-type-parameter">Ready</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">true</span><br/><span>    </span><span class="tsd-signature-symbol">? </span><span class="tsd-signature-type">string</span><br/><span>    </span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span></div>
 <div class="tsd-comment tsd-typography"><p>Where all items will be placed</p>
 </div>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/IStore.html">IStore</a>.<a href="../interfaces/IStore.html#dest">dest</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/store.ts#L93">src/store.ts:93</a></li></ul></aside></section>
+<li>Defined in src/store.d.ts:26</li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="query" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>query</span><a href="#query" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<div class="tsd-signature"><span class="tsd-kind-property">query</span><span class="tsd-signature-symbol">:</span> <a href="../types/QueryBind.html" class="tsd-signature-type tsd-kind-type-alias">QueryBind</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MetadataSource.html" class="tsd-signature-type tsd-kind-interface">MetadataSource</a><span class="tsd-signature-symbol">, </span><a href="Metadata.html" class="tsd-signature-type tsd-kind-class">Metadata</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
+<div class="tsd-signature"><span class="tsd-kind-property">query</span><span class="tsd-signature-symbol">:</span> <a href="../types/QueryBind.html" class="tsd-signature-type tsd-kind-type-alias">QueryBind</a><span class="tsd-signature-symbol">&lt;</span><a href="Metadata.html" class="tsd-signature-type tsd-kind-class">Metadata</a><span class="tsd-signature-symbol">&gt;</span></div>
 <div class="tsd-comment tsd-typography"><p>Utility to query through stored metadata</p>
 </div>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/IStore.html">IStore</a>.<a href="../interfaces/IStore.html#query">query</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/store.ts#L95">src/store.ts:95</a></li></ul></aside></section></section>
-<section class="tsd-panel-group tsd-member-group">
-<h2>Accessors</h2>
+<li>Defined in src/store.d.ts:94</li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="ready" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>ready</span><a href="#ready" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures">
-<li class="tsd-signature" id="ready.ready-1"><span class="tsd-signature-symbol">get</span> ready<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type tsd-kind-type-parameter">Ready</span></li>
-<li class="tsd-description">
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>ready</span><a href="#ready" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<div class="tsd-signature"><span class="tsd-kind-property">ready</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type tsd-kind-type-parameter">Ready</span></div>
 <div class="tsd-comment tsd-typography"><p>Ready to use</p>
 </div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type tsd-kind-type-parameter">Ready</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/IStore.html">IStore</a>.<a href="../interfaces/IStore.html#ready">ready</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/store.ts#L102">src/store.ts:102</a></li></ul></aside></li></ul></section></section>
+<li>Defined in src/store.d.ts:31</li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
+<section class="tsd-panel tsd-member"><a id="_asyncIterator_" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>[async<wbr/>Iterator]</span><a href="#_asyncIterator_" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="_asyncIterator_._asyncIterator_-1"><span class="tsd-kind-call-signature">[async<wbr/>Iterator]</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">AsyncIterableIterator</span><span class="tsd-signature-symbol">&lt;</span><a href="Metadata.html" class="tsd-signature-type tsd-kind-class">Metadata</a><span class="tsd-signature-symbol">&gt;</span><a href="#_asyncIterator_._asyncIterator_-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Iterate over meta files stored on disk.</p>
+</div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">AsyncIterableIterator</span><span class="tsd-signature-symbol">&lt;</span><a href="Metadata.html" class="tsd-signature-type tsd-kind-class">Metadata</a><span class="tsd-signature-symbol">&gt;</span></h4>
+<div class="tsd-comment tsd-typography">
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">store</span><span class="hl-1"> = </span><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-6">Store</span><span class="hl-1">();</span><br/><span class="hl-0">for</span><span class="hl-1"> </span><span class="hl-0">await</span><span class="hl-1"> (</span><span class="hl-2">meta</span><span class="hl-1"> </span><span class="hl-4">of</span><span class="hl-1"> </span><span class="hl-2">store</span><span class="hl-1">) {}</span>
+</code><button>Copy</button></pre>
+</div><aside class="tsd-sources">
+<p>Implementation of AsyncIterable.[asyncIterator]</p>
+<ul>
+<li>Defined in src/store.d.ts:21</li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="check" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>check</span><a href="#check" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -134,9 +133,8 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span></h4><p>If <code>key</code> exists, return full path to the file, and <code>false</code> otherwise.</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/IStore.html">IStore</a>.<a href="../interfaces/IStore.html#check">check</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/store.ts#L134">src/store.ts:134</a></li></ul></aside></li></ul></section>
+<li>Defined in src/store.d.ts:58</li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="delete" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>delete</span><a href="#delete" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -150,9 +148,8 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4><p>true if an element in the Store existed and has been removed, or false if the element does not exist.</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/IStore.html">IStore</a>.<a href="../interfaces/IStore.html#delete">delete</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/store.ts#L116">src/store.ts:116</a></li></ul></aside></li></ul></section>
+<li>Defined in src/store.d.ts:68</li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="insert" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>insert</span><a href="#insert" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -167,9 +164,8 @@
 <h5><span class="tsd-kind-parameter">pairs</span>: <a href="../types/RawCachePair.html" class="tsd-signature-type tsd-kind-type-alias">RawCachePair</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">Buffer</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/IStore.html">IStore</a>.<a href="../interfaces/IStore.html#insert">insert</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/store.ts#L201">src/store.ts:201</a></li></ul></aside></li></ul></section>
+<li>Defined in src/store.d.ts:36</li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="load" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>load</span><a href="#load" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -187,9 +183,8 @@
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/RawCacheEntry.html" class="tsd-signature-type tsd-kind-type-alias">RawCacheEntry</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">Buffer</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/IStore.html">IStore</a>.<a href="../interfaces/IStore.html#load">load</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/store.ts#L221">src/store.ts:221</a></li></ul></aside></li></ul></section>
+<li>Defined in src/store.d.ts:75</li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="loadMeta" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>load<wbr/>Meta</span><a href="#loadMeta" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -201,28 +196,26 @@
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5><span class="tsd-kind-parameter">size</span>: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">size</span>: <span class="tsd-signature-type">number</span></h5>
 <div class="tsd-comment tsd-typography"><p>limits array size</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/MetadataSource.html" class="tsd-signature-type tsd-kind-interface">MetadataSource</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/IStore.html">IStore</a>.<a href="../interfaces/IStore.html#loadMeta">loadMeta</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/store.ts#L232">src/store.ts:232</a></li></ul></aside></li></ul></section>
+<li>Defined in src/store.d.ts:82</li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="reset" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>reset</span><a href="#reset" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="reset.reset-1"><span class="tsd-kind-call-signature">reset</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#reset.reset-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/IStore.html">IStore</a>.<a href="../interfaces/IStore.html#reset">reset</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/store.ts#L106">src/store.ts:106</a></li></ul></aside></li></ul></section>
+<li>Defined in src/store.d.ts:89</li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="retrieve" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>retrieve</span><a href="#retrieve" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="retrieve.retrieve-1"><span class="tsd-kind-call-signature">retrieve</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">key</span>, <span class="tsd-kind-parameter">__skip_check</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">Buffer</span><span class="tsd-signature-symbol">&gt;</span><a href="#retrieve.retrieve-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="retrieve.retrieve-1"><span class="tsd-kind-call-signature">retrieve</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">key</span>, <span class="tsd-kind-parameter">_skip_check</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">Buffer</span><span class="tsd-signature-symbol">&gt;</span><a href="#retrieve.retrieve-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -230,15 +223,14 @@
 <li>
 <h5><span class="tsd-kind-parameter">key</span>: <a href="Key.html" class="tsd-signature-type tsd-kind-class">Key</a></h5></li>
 <li>
-<h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">__skip_check</span>: <span class="tsd-signature-symbol">typeof </span><span class="tsd-signature-type ">skip_check_symbol</span></h5>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">_skip_check</span>: <span class="tsd-signature-symbol">typeof </span><span class="tsd-signature-type ">skip_check_symbol</span></h5>
 <div class="tsd-comment tsd-typography"><p><strong>INTERNAL USAGE ONLY</strong></p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">Buffer</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/IStore.html">IStore</a>.<a href="../interfaces/IStore.html#retrieve">retrieve</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/store.ts#L163">src/store.ts:163</a></li></ul></aside></li></ul></section>
+<li>Defined in src/store.d.ts:41</li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="retrieveMeta" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>retrieve<wbr/>Meta</span><a href="#retrieveMeta" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -256,9 +248,8 @@
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="Metadata.html" class="tsd-signature-type tsd-kind-class">Metadata</a><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/IStore.html">IStore</a>.<a href="../interfaces/IStore.html#retrieveMeta">retrieveMeta</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/store.ts#L182">src/store.ts:182</a></li></ul></aside></li></ul></section>
+<li>Defined in src/store.d.ts:49</li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="setup" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>setup</span><a href="#setup" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -276,9 +267,8 @@
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Store.html" class="tsd-signature-type tsd-kind-class">Store</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/IStore.html">IStore</a>.<a href="../interfaces/IStore.html#setup">setup</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/store.ts#L149">src/store.ts:149</a></li></ul></aside></li></ul></section>
+<li>Defined in src/store.d.ts:63</li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="start" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>start</span><a href="#start" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -296,7 +286,7 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Store.html" class="tsd-signature-type tsd-kind-class">Store</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/store.ts#L254">src/store.ts:254</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in src/store.d.ts:99</li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -317,10 +307,10 @@
 <div class="tsd-accordion-details">
 <ul>
 <li><a href="#constructor" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-512"></use></svg><span>constructor</span></a></li>
-<li><a href="#_ready" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>#ready</span></a></li>
 <li><a href="#dest" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>dest</span></a></li>
 <li><a href="#query" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>query</span></a></li>
-<li><a href="#ready" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-262144"></use></svg><span>ready</span></a></li>
+<li><a href="#ready" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>ready</span></a></li>
+<li><a href="#_asyncIterator_" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>[async<wbr/>Iterator]</span></a></li>
 <li><a href="#check" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>check</span></a></li>
 <li><a href="#delete" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>delete</span></a></li>
 <li><a href="#insert" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>insert</span></a></li>
@@ -339,9 +329,11 @@
 <li><a href="Key.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>Key</a></li>
 <li><a href="Metadata.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>Metadata</a></li>
 <li><a href="Store.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>Store</a></li>
+<li><a href="../interfaces/BindQueryAsyncHandler.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>BindQueryAsyncHandler</a></li>
+<li><a href="../interfaces/BindQueryHandler.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>BindQueryHandler</a></li>
+<li><a href="../interfaces/BindQueryTransformer.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>BindQueryTransformer</a></li>
 <li><a href="../interfaces/CacheValueManager.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>CacheValueManager</a></li>
 <li><a href="../interfaces/ICache.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>ICache</a></li>
-<li><a href="../interfaces/IStore.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>IStore</a></li>
 <li><a href="../interfaces/KeySouce.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>KeySouce</a></li>
 <li><a href="../interfaces/MetadataSource.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>MetadataSource</a></li>
 <li><a href="../interfaces/NewCacheArgs.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>NewCacheArgs</a></li>
@@ -352,9 +344,7 @@
 <li><a href="../types/RawCache.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>RawCache</a></li>
 <li><a href="../types/RawCacheEntry.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>RawCacheEntry</a></li>
 <li><a href="../types/RawCachePair.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>RawCachePair</a></li>
-<li><a href="../types/ZodSerializable.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>ZodSerializable</a></li>
-<li><a href="../types/ZodSerializableObject.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>ZodSerializableObject</a></li>
-<li><a href="../variables/CacheManagers.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-32"></use></svg>CacheManagers</a></li>
+<li><a href="../types/ZodManager.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>ZodManager</a></li>
 <li>Loading...</li></ul></nav></div></div></div>
 <div class="tsd-generator">
 <p>Generated using <a href="https://typedoc.org/" rel="noopener" target="_blank">TypeDoc</a></p></div>

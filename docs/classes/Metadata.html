@@ -29,7 +29,7 @@ that is, it is implemented and controlled by <code>Store</code>.</p>
 <ul class="tsd-hierarchy">
 <li><a href="../interfaces/MetadataSource.html" class="tsd-signature-type tsd-kind-interface">MetadataSource</a></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/meta.ts#L13">src/meta.ts:13</a></li></ul></aside>
+<li>Defined in src/meta.d.ts:13</li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -41,19 +41,15 @@ that is, it is implemented and controlled by <code>Store</code>.</p>
 </div></section>
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Properties</h3>
-<div class="tsd-index-list"><a href="Metadata.html#_created_at_ts" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>#created_<wbr/>at_<wbr/>ts</span></a>
-<a href="Metadata.html#_modified_at_ts" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>#modified_<wbr/>at_<wbr/>ts</span></a>
+<div class="tsd-index-list"><a href="Metadata.html#created_at_ts" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>created_<wbr/>at_<wbr/>ts</span></a>
 <a href="Metadata.html#key" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>key</span></a>
-</div></section>
-<section class="tsd-index-section">
-<h3 class="tsd-index-heading">Accessors</h3>
-<div class="tsd-index-list"><a href="Metadata.html#created_at_ts" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-262144"></use></svg><span>created_<wbr/>at_<wbr/>ts</span></a>
-<a href="Metadata.html#modified_at_ts" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-262144"></use></svg><span>modified_<wbr/>at_<wbr/>ts</span></a>
+<a href="Metadata.html#modified_at_ts" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>modified_<wbr/>at_<wbr/>ts</span></a>
 </div></section>
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Methods</h3>
 <div class="tsd-index-list"><a href="Metadata.html#toSource" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>to<wbr/>Source</span></a>
 <a href="Metadata.html#touch" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>touch</span></a>
+<a href="Metadata.html#fromBuffer" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>from<wbr/>Buffer</span></a>
 <a href="Metadata.html#fromSource" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>from<wbr/>Source</span></a>
 </div></section></div></details></section></section>
 <section class="tsd-panel-group tsd-member-group">
@@ -70,45 +66,27 @@ that is, it is implemented and controlled by <code>Store</code>.</p>
 <h5><span class="tsd-kind-parameter">key</span>: <a href="Key.html" class="tsd-signature-type tsd-kind-class">Key</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="Metadata.html" class="tsd-signature-type tsd-kind-class">Metadata</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/meta.ts#L46">src/meta.ts:46</a></li></ul></aside></li></ul></section></section>
+<li>Defined in src/meta.d.ts:25</li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Properties</h2>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="_created_at_ts" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>#created_<wbr/>at_<wbr/>ts</span><a href="#_created_at_ts" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<div class="tsd-signature"><span class="tsd-kind-property">#created_<wbr/>at_<wbr/>ts</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = ...</span></div><aside class="tsd-sources">
+<section class="tsd-panel tsd-member"><a id="created_at_ts" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>created_<wbr/>at_<wbr/>ts</span><a href="#created_at_ts" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<div class="tsd-signature"><span class="tsd-kind-property">created_<wbr/>at_<wbr/>ts</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div><aside class="tsd-sources">
+<p>Implementation of <a href="../interfaces/MetadataSource.html">MetadataSource</a>.<a href="../interfaces/MetadataSource.html#created_at_ts">created_at_ts</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/meta.ts#L14">src/meta.ts:14</a></li></ul></aside></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="_modified_at_ts" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>#modified_<wbr/>at_<wbr/>ts</span><a href="#_modified_at_ts" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<div class="tsd-signature"><span class="tsd-kind-property">#modified_<wbr/>at_<wbr/>ts</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = ...</span></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/meta.ts#L15">src/meta.ts:15</a></li></ul></aside></section>
+<li>Defined in src/meta.d.ts:15</li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="key" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>key</span><a href="#key" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">key</span><span class="tsd-signature-symbol">:</span> <a href="Key.html" class="tsd-signature-type tsd-kind-class">Key</a></div><aside class="tsd-sources">
 <p>Implementation of <a href="../interfaces/MetadataSource.html">MetadataSource</a>.<a href="../interfaces/MetadataSource.html#key">key</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/meta.ts#L46">src/meta.ts:46</a></li></ul></aside></section></section>
-<section class="tsd-panel-group tsd-member-group">
-<h2>Accessors</h2>
-<section class="tsd-panel tsd-member"><a id="created_at_ts" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>created_<wbr/>at_<wbr/>ts</span><a href="#created_at_ts" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures">
-<li class="tsd-signature" id="created_at_ts.created_at_ts-1"><span class="tsd-signature-symbol">get</span> created_at_ts<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-<li class="tsd-description">
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/MetadataSource.html">MetadataSource</a>.<a href="../interfaces/MetadataSource.html#created_at_ts">created_at_ts</a></p>
-<ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/meta.ts#L17">src/meta.ts:17</a></li></ul></aside></li></ul></section>
+<li>Defined in src/meta.d.ts:14</li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="modified_at_ts" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>modified_<wbr/>at_<wbr/>ts</span><a href="#modified_at_ts" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures">
-<li class="tsd-signature" id="modified_at_ts.modified_at_ts-1"><span class="tsd-signature-symbol">get</span> modified_at_ts<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-<li class="tsd-description">
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4><aside class="tsd-sources">
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>modified_<wbr/>at_<wbr/>ts</span><a href="#modified_at_ts" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<div class="tsd-signature"><span class="tsd-kind-property">modified_<wbr/>at_<wbr/>ts</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div><aside class="tsd-sources">
 <p>Implementation of <a href="../interfaces/MetadataSource.html">MetadataSource</a>.<a href="../interfaces/MetadataSource.html#modified_at_ts">modified_at_ts</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/meta.ts#L21">src/meta.ts:21</a></li></ul></aside></li></ul></section></section>
+<li>Defined in src/meta.d.ts:16</li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member"><a id="toSource" class="tsd-anchor"></a>
@@ -118,7 +96,7 @@ that is, it is implemented and controlled by <code>Store</code>.</p>
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <a href="../interfaces/MetadataSource.html" class="tsd-signature-type tsd-kind-interface">MetadataSource</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/meta.ts#L29">src/meta.ts:29</a></li></ul></aside></li></ul></section>
+<li>Defined in src/meta.d.ts:19</li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="touch" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>touch</span><a href="#touch" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -126,7 +104,20 @@ that is, it is implemented and controlled by <code>Store</code>.</p>
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/meta.ts#L25">src/meta.ts:25</a></li></ul></aside></li></ul></section>
+<li>Defined in src/meta.d.ts:18</li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="fromBuffer" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>from<wbr/>Buffer</span><a href="#fromBuffer" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="fromBuffer.fromBuffer-1"><span class="tsd-kind-call-signature">from<wbr/>Buffer</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">buffer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Metadata.html" class="tsd-signature-type tsd-kind-class">Metadata</a><a href="#fromBuffer.fromBuffer-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">buffer</span>: <span class="tsd-signature-type ">Buffer</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <a href="Metadata.html" class="tsd-signature-type tsd-kind-class">Metadata</a></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in src/meta.d.ts:23</li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="fromSource" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>from<wbr/>Source</span><a href="#fromSource" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -139,7 +130,7 @@ that is, it is implemented and controlled by <code>Store</code>.</p>
 <h5><span class="tsd-kind-parameter">source</span>: <a href="../interfaces/MetadataSource.html" class="tsd-signature-type tsd-kind-interface">MetadataSource</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="Metadata.html" class="tsd-signature-type tsd-kind-class">Metadata</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/mateus-p/file-cache/blob/bc8c453/src/meta.ts#L37">src/meta.ts:37</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in src/meta.d.ts:21</li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -160,13 +151,12 @@ that is, it is implemented and controlled by <code>Store</code>.</p>
 <div class="tsd-accordion-details">
 <ul>
 <li><a href="#constructor" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-512"></use></svg><span>constructor</span></a></li>
-<li><a href="#_created_at_ts" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>#created_<wbr/>at_<wbr/>ts</span></a></li>
-<li><a href="#_modified_at_ts" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>#modified_<wbr/>at_<wbr/>ts</span></a></li>
+<li><a href="#created_at_ts" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>created_<wbr/>at_<wbr/>ts</span></a></li>
 <li><a href="#key" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>key</span></a></li>
-<li><a href="#created_at_ts" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-262144"></use></svg><span>created_<wbr/>at_<wbr/>ts</span></a></li>
-<li><a href="#modified_at_ts" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-262144"></use></svg><span>modified_<wbr/>at_<wbr/>ts</span></a></li>
+<li><a href="#modified_at_ts" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>modified_<wbr/>at_<wbr/>ts</span></a></li>
 <li><a href="#toSource" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>to<wbr/>Source</span></a></li>
 <li><a href="#touch" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>touch</span></a></li>
+<li><a href="#fromBuffer" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>from<wbr/>Buffer</span></a></li>
 <li><a href="#fromSource" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>from<wbr/>Source</span></a></li></ul></div></details></div>
 <div class="site-menu">
 <nav class="tsd-navigation"><a href="../modules.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1"></use></svg><span>@mateus-pires/file-cache</span></a>
@@ -176,9 +166,11 @@ that is, it is implemented and controlled by <code>Store</code>.</p>
 <li><a href="Key.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>Key</a></li>
 <li><a href="Metadata.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>Metadata</a></li>
 <li><a href="Store.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>Store</a></li>
+<li><a href="../interfaces/BindQueryAsyncHandler.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>BindQueryAsyncHandler</a></li>
+<li><a href="../interfaces/BindQueryHandler.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>BindQueryHandler</a></li>
+<li><a href="../interfaces/BindQueryTransformer.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>BindQueryTransformer</a></li>
 <li><a href="../interfaces/CacheValueManager.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>CacheValueManager</a></li>
 <li><a href="../interfaces/ICache.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>ICache</a></li>
-<li><a href="../interfaces/IStore.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>IStore</a></li>
 <li><a href="../interfaces/KeySouce.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>KeySouce</a></li>
 <li><a href="../interfaces/MetadataSource.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>MetadataSource</a></li>
 <li><a href="../interfaces/NewCacheArgs.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>NewCacheArgs</a></li>
@@ -189,9 +181,7 @@ that is, it is implemented and controlled by <code>Store</code>.</p>
 <li><a href="../types/RawCache.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>RawCache</a></li>
 <li><a href="../types/RawCacheEntry.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>RawCacheEntry</a></li>
 <li><a href="../types/RawCachePair.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>RawCachePair</a></li>
-<li><a href="../types/ZodSerializable.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>ZodSerializable</a></li>
-<li><a href="../types/ZodSerializableObject.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>ZodSerializableObject</a></li>
-<li><a href="../variables/CacheManagers.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-32"></use></svg>CacheManagers</a></li>
+<li><a href="../types/ZodManager.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>ZodManager</a></li>
 <li>Loading...</li></ul></nav></div></div></div>
 <div class="tsd-generator">
 <p>Generated using <a href="https://typedoc.org/" rel="noopener" target="_blank">TypeDoc</a></p></div>

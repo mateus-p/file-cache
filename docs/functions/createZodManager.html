@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>NullableCacheValue | @mateus-pires/file-cache</title><meta name="description" content="Documentation for @mateus-pires/file-cache"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/search.js" id="tsd-search-script"></script><script async src="../assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>createZodManager | @mateus-pires/file-cache</title><meta name="description" content="Documentation for @mateus-pires/file-cache"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/search.js" id="tsd-search-script"></script><script async src="../assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
 <div class="tsd-toolbar-contents container">
 <div class="table-cell" id="tsd-search" data-base="..">
 <div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="#icon-search"></use></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
@@ -13,16 +13,32 @@
 <div class="tsd-page-title">
 <ul class="tsd-breadcrumb">
 <li><a href="../modules.html">@mateus-pires/file-cache</a></li>
-<li><a href="NullableCacheValue.html">NullableCacheValue</a></li></ul>
-<h1>Type alias NullableCacheValue&lt;Type&gt;</h1></div>
-<div class="tsd-signature"><span class="tsd-kind-type-alias">Nullable<wbr/>Cache<wbr/>Value</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">Type</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type tsd-kind-type-parameter">Type</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+<li><a href="createZodManager.html">createZodManager</a></li></ul>
+<h1>Function createZodManager</h1></div>
+<section class="tsd-panel">
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="createZodManager"><span class="tsd-kind-call-signature">create<wbr/>Zod<wbr/>Manager</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">Type</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">obj</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../types/ZodManager.html" class="tsd-signature-type tsd-kind-type-alias">ZodManager</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">Type</span><span class="tsd-signature-symbol">&gt;</span><a href="#createZodManager" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
 <section class="tsd-panel">
 <h4>Type Parameters</h4>
 <ul class="tsd-type-parameter-list">
 <li>
-<h4><span class="tsd-kind-type-parameter">Type</span></h4></li></ul></section><aside class="tsd-sources">
+<h4><span class="tsd-kind-type-parameter">Type</span><span class="tsd-signature-symbol"> extends </span><a href="../types/ZodSerializable.html" class="tsd-signature-type tsd-kind-type-alias">ZodSerializable</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">ZodObject</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/ZodSerializableObject.html" class="tsd-signature-type tsd-kind-type-alias">ZodSerializableObject</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type ">UnknownKeysParam</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type ">ZodTypeAny</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">&gt;</span></h4></li></ul></section>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">obj</span>: <span class="tsd-signature-type tsd-kind-type-parameter">Type</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <a href="../types/ZodManager.html" class="tsd-signature-type tsd-kind-type-alias">ZodManager</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">Type</span><span class="tsd-signature-symbol">&gt;</span></h4>
+<div class="tsd-comment tsd-typography">
+<h4>Requires</h4><p><a href="https://github.com/colinhacks/zod">zod</a></p>
+<p>Powered by <code>node:v8</code> and <code>zod</code> (as a peer dependency, please install it if you use it), with this value manager it is possible to save any serializable object, as well as perform type checking at runtime</p>
+
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">CacheManagers</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&quot;@mateus-pires/file-cache&quot;</span><span class="hl-1">;</span><br/><span class="hl-0">import</span><span class="hl-1"> </span><span class="hl-2">z</span><span class="hl-1"> </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&quot;zod&quot;</span><span class="hl-1">;</span><br/><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">ZodManager</span><span class="hl-1"> = </span><span class="hl-2">CacheManagers</span><span class="hl-1">.</span><span class="hl-6">Zod</span><span class="hl-1">(</span><br/><span class="hl-1"> </span><span class="hl-2">z</span><span class="hl-1">.</span><span class="hl-6">object</span><span class="hl-1">({ </span><span class="hl-2">a:</span><span class="hl-1"> </span><span class="hl-2">z</span><span class="hl-1">.</span><span class="hl-6">string</span><span class="hl-1">().</span><span class="hl-6">optional</span><span class="hl-1">(), </span><span class="hl-2">b:</span><span class="hl-1"> </span><span class="hl-2">z</span><span class="hl-1">.</span><span class="hl-6">number</span><span class="hl-1">() })</span><br/><span class="hl-1">);</span><br/><br/><span class="hl-9">// cache: Cache&lt;{ a?: string; b: number }&gt;</span><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">cache</span><span class="hl-1"> = </span><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-6">Cache</span><span class="hl-1">({ </span><span class="hl-2">value_manager:</span><span class="hl-1"> </span><span class="hl-2">ZodManager</span><span class="hl-1"> });</span>
+</code><button>Copy</button></pre>
+</div><aside class="tsd-sources">
 <ul>
-<li>Defined in src/cache.d.ts:8</li></ul></aside></div>
+<li>Defined in src/cache_managers/zod.d.ts:41</li></ul></aside></li></ul></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -54,14 +70,14 @@
 <li><a href="../interfaces/KeySouce.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>KeySouce</a></li>
 <li><a href="../interfaces/MetadataSource.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>MetadataSource</a></li>
 <li><a href="../interfaces/NewCacheArgs.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>NewCacheArgs</a></li>
-<li><a href="CacheMap.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>CacheMap</a></li>
-<li><a href="CacheObj.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>CacheObj</a></li>
-<li><a href="NullableCacheValue.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>NullableCacheValue</a></li>
-<li><a href="QueryBind.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>QueryBind</a></li>
-<li><a href="RawCache.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>RawCache</a></li>
-<li><a href="RawCacheEntry.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>RawCacheEntry</a></li>
-<li><a href="RawCachePair.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>RawCachePair</a></li>
-<li><a href="ZodManager.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>ZodManager</a></li>
+<li><a href="../types/CacheMap.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>CacheMap</a></li>
+<li><a href="../types/CacheObj.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>CacheObj</a></li>
+<li><a href="../types/NullableCacheValue.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>NullableCacheValue</a></li>
+<li><a href="../types/QueryBind.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>QueryBind</a></li>
+<li><a href="../types/RawCache.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>RawCache</a></li>
+<li><a href="../types/RawCacheEntry.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>RawCacheEntry</a></li>
+<li><a href="../types/RawCachePair.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>RawCachePair</a></li>
+<li><a href="../types/ZodManager.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2097152"></use></svg>ZodManager</a></li>
 <li>Loading...</li></ul></nav></div></div></div>
 <div class="tsd-generator">
 <p>Generated using <a href="https://typedoc.org/" rel="noopener" target="_blank">TypeDoc</a></p></div>
