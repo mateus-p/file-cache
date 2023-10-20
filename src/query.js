@@ -1,5 +1,8 @@
 /// <reference types="./query.d.ts" />
 
+/**
+ * @type {import('./query.d.ts').Query}
+ */
 const Query = {
   async findFirst(query, input) {
     for await (const item of await input) {
@@ -12,6 +15,22 @@ const Query = {
 
     for await (const item of await input) {
       if (query(item)) result.push(item);
+    }
+
+    return result;
+  },
+
+  async findFirstBy(query, input, key) {
+    for await (const item of await input) {
+      if (query(item[key])) return item;
+    }
+  },
+
+  async findManyBy(query, input, key) {
+    const result = [];
+
+    for await (const item of await input) {
+      if (query(item[key])) result.push(item);
     }
 
     return result;
