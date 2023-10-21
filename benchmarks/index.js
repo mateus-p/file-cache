@@ -1,5 +1,5 @@
 const submitCacheBenchmarks = require("./cache");
-const { runBenchmarkSuite, Util } = require("../src/dev/benchmark");
+const { runBenchmarkSuite, Util } = require("./dev/benchmark");
 const {
   name,
   version,
