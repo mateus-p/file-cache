@@ -29,7 +29,6 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.8.4",
-    "@types/promise-queue": "^2.2.1",
     "@types/uuid": "^9.0.5",
     "lodash.camelcase": "^4.3.0",
     "lodash.upperfirst": "^4.3.1",
