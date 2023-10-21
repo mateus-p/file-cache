@@ -10,71 +10,6 @@ export declare type CacheObj<Type> = Record<string, Type>;
 export declare type RawCacheEntry<Type> = [Key, Type];
 export declare type RawCachePair<Type> = { key: Key; value: Type };
 
-export declare interface ICache<Type> {
-  max_size: number;
-
-  /**
-   * Cache is ready to use
-   */
-  readonly ready: boolean;
-
-  /**
-   * @param include_store delete `key` in store
-   * @returns `deleted_from_map || (include_store && deleted_from_store)`
-   */
-  delete(key: Key, include_store?: boolean): Promise<boolean>;
-
-  /**
-   * Adds a new element with a specified key and value to the Cache.
-   * If an element with the same key already exists, the element will be updated.
-   * If the insertion of the element makes the cache larger than `max_size`, the first pushed element is flushed to store.
-   * If a string key is passed, a new `Key` instance will be generated.
-   */
-  set(key: string | Key, value: Type): Promise<Key>;
-
-  /**
-   * Get value by key.
-   * @param include_store if `key` is not found in the cache, then search the store.
-   * If found in the store, automatically load it into the cache.
-   */
-  get(key: Key, include_store?: boolean): Promise<NullableCacheValue<Type>>;
-
-  /**
-   * Get key metadata. Only works if `key` has already been stored at some point.
-   */
-  getMeta(key: Key): Promise<Metadata | undefined>;
-
-  /**
-   * Load items from the store, in reverse chronological order, limited by `max_size`.
-   */
-  loadFromStore(): Promise<void>;
-
-  /**
-   * Insert all items into the store, then clear the cache.
-   */
-  flushToStore(): Promise<void>;
-
-  /**
-   * Insert items into the store.
-   */
-  save(keys: Key[] | "all"): Promise<void>;
-
-  /**
-   * @param include_store if `key` is not found in the cache, then search the store.
-   */
-  has(key: Key, include_store?: boolean): boolean;
-
-  /**
-   * Exposes {@link Store.query}
-   */
-  readonly storeQuery: QueryBind<MetadataSource, Metadata>;
-
-  /**
-   * Utility to query through map keys
-   */
-  query: QueryBind<Key>;
-}
-
 export declare interface NewCacheArgs<Type, Ready extends boolean> {
   max_size: number;
   store: Store<Ready>;
@@ -87,7 +22,7 @@ export declare type CacheMap<Type> = Omit<
 >;
 
 export declare class Cache<Type, Ready extends boolean = false>
-  implements ICache<Type>, CacheMap<Type>
+  implements CacheMap<Type>
 {
   //#region MAP BINDINGS
 
@@ -114,7 +49,9 @@ export declare class Cache<Type, Ready extends boolean = false>
 
   max_size: number;
 
-  query: QueryBind<Key>;
+  query: QueryBind<Key, { key: Key; value: Promise<Type> }>;
+
+  readonly storeQuery: Store<boolean>["query"];
 
   constructor(args: NewCacheArgs<Type, Ready>);
 
@@ -136,8 +73,6 @@ export declare class Cache<Type, Ready extends boolean = false>
   save(keys: Key[] | "all"): Promise<void>;
 
   has(key: Key, include_store?: boolean | undefined): boolean;
-
-  readonly storeQuery: QueryBind<MetadataSource, Metadata>;
 
   readonly ready: Ready;
 

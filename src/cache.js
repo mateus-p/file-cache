@@ -58,6 +58,7 @@ class Cache {
 
   query = query.bindQuery({
     iterator: () => this.#map.keys(),
+    transformer: (key) => ({ key, value: this.get(key) }),
   });
 
   /**
@@ -123,7 +124,7 @@ class Cache {
         await this.#store.insert([
           {
             key: last_key,
-            value: this.#value_manager.bake(last_key_value),
+            value: this.#value_manager.toBuffer(last_key_value),
           },
         ]);
       }
@@ -156,10 +157,7 @@ class Cache {
     const fileCachePath = this.#store.check(key);
 
     const retrieved_value = fileCachePath
-      ? await this.#value_manager.revive({
-          buffer: () => this.#store.retrieve(key),
-          fileCachePath,
-        })
+      ? await this.#value_manager.fromBuffer(this.#store.retrieve(key))
       : undefined;
 
     if (retrieved_value) await this.set(key, retrieved_value);
@@ -178,10 +176,7 @@ class Cache {
     const new_cache_entries = await this.#store.load(this.max_size);
 
     for (const [key, value] of new_cache_entries) {
-      await this.set(
-        key,
-        await this.#value_manager.revive({ buffer: () => value })
-      );
+      await this.set(key, this.#value_manager.fromBuffer(value));
     }
   }
 
@@ -193,7 +188,7 @@ class Cache {
     await this.#store.insert(
       pKeys.map(([key, value]) => ({
         key,
-        value: this.#value_manager.bake(value),
+        value: this.#value_manager.toBuffer(value),
       }))
     );
   }
@@ -218,7 +213,7 @@ class Cache {
 
       pairs.push({
         key,
-        value: this.#value_manager.bake(value),
+        value: this.#value_manager.toBuffer(value),
       });
     }
 
