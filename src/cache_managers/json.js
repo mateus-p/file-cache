@@ -18,7 +18,13 @@ const JSONManager = {
   bake: (value) => JSONManager.toBuffer(value),
   test: (value) => {
     try {
-      JSON.stringify(value);
+      const result = JSON.stringify(value);
+
+      if (typeof result != "string")
+        return {
+          pass: false,
+          failReason: `Cannot serialize '${value}' into JSON`,
+        };
 
       return { pass: true };
     } catch (err) {
