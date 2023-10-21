@@ -21,6 +21,7 @@ class Store {
 
   query = query.bindQuery({
     asyncIterator: () => this[Symbol.asyncIterator](),
+    transformer: (meta) => ({ meta, value: this.retrieve(meta.key) }),
   });
 
   get ready() {

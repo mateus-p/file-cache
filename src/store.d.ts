@@ -91,7 +91,7 @@ export declare class Store<Ready extends boolean>
   /**
    * Utility to query through stored metadata
    */
-  query: QueryBind<Metadata>;
+  query: QueryBind<Metadata, { meta: Metadata; value: Promise<Buffer> }>;
 
   /**
    * Create new, ready to use, Store instance
