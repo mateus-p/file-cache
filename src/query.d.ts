@@ -1,4 +1,4 @@
-import { Dot } from "./dot";
+import { Dot } from "./utils/dot";
 
 export declare type QueryIterable<Input> =
   | IterableIterator<Input>
@@ -80,11 +80,13 @@ export declare interface BindQueryAsyncHandler<Input, Output = void>
     | Promise<AsyncIterableIterator<Input>>;
 }
 
-export declare function bindQuery<
+export declare type BindQueryFn = <
   Input extends Record<string, any>,
   Output = void
 >(
   handler:
     | BindQueryHandler<Input, Output>
     | BindQueryAsyncHandler<Input, Output>
-): QueryBind<Input, Output>;
+) => QueryBind<Input, Output>;
+
+export declare const bindQuery: BindQueryFn;
