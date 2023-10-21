@@ -1,11 +1,21 @@
 const { inspect } = require("util");
 
+/**
+ * @type {import('./json').JSONManager}
+ */
 const JSONManager = {
-  revive: async ({ buffer }) => {
-    const buf_string = (await buffer()).toString("utf-8");
-    return JSON.parse(buf_string);
+  revive: ({ buffer }) => {
+    return JSONManager.fromBuffer(buffer());
   },
-  bake: (value) => Buffer.from(JSON.stringify(value), "utf-8"),
+  fromBuffer: (buf) => {
+    if (buf instanceof Promise) {
+      return buf.then((data) => JSON.parse(data.toString("utf-8")));
+    }
+
+    return JSON.parse(buf.toString());
+  },
+  toBuffer: (value) => Buffer.from(JSON.stringify(value), "utf-8"),
+  bake: (value) => JSONManager.toBuffer(value),
   test: (value) => {
     try {
       JSON.stringify(value);
@@ -15,6 +25,7 @@ const JSONManager = {
       return { pass: false, failReason: inspect(err) };
     }
   },
+
   toJSON: () => "[[BuiltInManagers#JSON]]",
 };
 
