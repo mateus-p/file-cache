@@ -1,5 +1,5 @@
 /**
- * @type {import('./dot.d.ts').DotFn}
+ * @type {import('./dot.js').DotFn}
  */
 const dot = function (target, key = "") {
   const parts = key.split(".");

@@ -4,4 +4,5 @@ module.exports = {
   ...require("./utils/timeout_error"),
   ...require("./utils/timeout_promise"),
   ...require("./utils/wait_until"),
+  ...require("./utils/dot"),
 };
